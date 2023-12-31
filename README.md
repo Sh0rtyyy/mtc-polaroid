@@ -5,6 +5,7 @@ A Polaroid Camera resource for ESX framewrok, recoded by mrshortyno, within the 
 
 # Credits
 https://github.com/morethancodenl/mtc-polaroid original repo
+Shorty (ME) for redoing the code to ESX
 
 ## 🔌 Installation:
 To get started with the MTC Polaroid resource, follow these steps:
