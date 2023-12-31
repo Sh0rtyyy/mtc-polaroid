@@ -1,7 +1,10 @@
 ![Polaroid](https://i.imgur.com/DkWqDk5.png)
 
 # Polaroid
-A Polaroid Camera resource for QBCore or Qbox Framework, within the script we focused on usability and a clean UI.
+A Polaroid Camera resource for ESX framewrok, recoded by mrshortyno, within the script we focused on usability and a clean UI.
+
+# Credits
+https://github.com/morethancodenl/mtc-polaroid original repo
 
 ## 🔌 Installation:
 To get started with the MTC Polaroid resource, follow these steps:
@@ -14,46 +17,6 @@ To get started with the MTC Polaroid resource, follow these steps:
 
 ## 📦 Items
 You can find the images for the items mentioned below in the ```images``` directory.
-
-**qb-core**
-```lua
-['polaroid_camera'] = {
-    ['name'] = 'polaroid_camera',
-    ['label'] = 'Polaroid camera',
-    ['weight'] = 5000,
-    ['type'] = 'item',
-    ['image'] = 'polaroid.png',
-    ['unique'] = true,
-    ['useable'] = true,
-    ['shouldClose'] = true,
-    ['combinable'] = nil,
-    ['description'] = 'Did we just go back in time?'
-},
-['polaroid'] = {
-    ['name'] = 'polaroid',
-    ['label'] = 'Polaroid image',
-    ['weight'] = 10,
-    ['type'] = 'item',
-    ['image'] = 'photo.png',
-    ['unique'] = true,
-    ['useable'] = true,
-    ['shouldClose'] = true,
-    ['combinable'] = nil,
-    ['description'] = 'Cool image bro'
-},
-['polaroid_paper'] = {
-    ['name'] = 'polaroid_paper',
-    ['label'] = 'Polaroid paper',
-    ['weight'] = 10,
-    ['type'] = 'item',
-    ['image'] = 'photo.png',
-    ['unique'] = false,
-    ['useable'] = false,
-    ['shouldClose'] = false,
-    ['combinable'] = nil,
-    ['description'] = 'Some paper'
-}
-```
 
 **ox_inventory**
 ```lua
