@@ -1,37 +1,44 @@
-local QBCore = exports['qb-core']:GetCoreObject()
-local webhook = "WEBHOOK HERE"
+local webhook = "https://discord.com/api/webhooks/1022085112923430962/1vtvvyE8_WQFcaR2bvYayk7B2fH526yGbGNB3zTb-BjG83swD02-rHlUiCxVatEFy_Uo"
 
 RegisterNetEvent("mtc-polaroid:server:getimage", function(url, name)
     local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-
-    if not Player.Functions.RemoveItem("polaroid_paper", 1) then
-        TriggerClientEvent('QBCore:Notify', src, "You don't have any polaroid paper", "error")
+    local xPlayer = ESX.GetPlayerFromId(src) 
+    if not xPlayer.removeInventoryItem('polaroid_paper', 1) then
+        print("You don't have any polaroid paper")
         return
     end
+    local date = os.date("%d-%m-%Y")
 
-    Player.Functions.AddItem("polaroid", 1, false, {url = url, name = name, date = os.date("%d-%m-%Y")})
-    TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["polaroid"], "add")
+    exports.ox_inventory:AddItem(src, 'polaroid', 1, {
+        name = name,
+        url = url,
+        date = date,
+    })
 end)
 
-QBCore.Functions.CreateCallback('mtc-polaroid:server:webhook', function(source, cb, args)
+ESX.RegisterServerCallback('mtc-polaroid:server:webhook', function(src, cb, args)
     cb(webhook)
+
 end)
 
-QBCore.Functions.CreateUseableItem('polaroid_camera', function(source, item)
+
+ESX.RegisterUsableItem('polaroid_camera', function(source, item)
     local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    if Player.Functions.GetItemByName(item.name) then
+    local xPlayer = ESX.GetPlayerFromId(src) 
+    if xPlayer.getInventoryItem(item) then
         TriggerClientEvent("mtc-polaroid:client:camera", src)
     end
 end)
 
-QBCore.Functions.CreateUseableItem('polaroid', function(source, item)
+ESX.RegisterUsableItem('polaroid', function(source, item)
     local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    local metadata = Config.Inventory == "ox" and "metadata" or "info"
+    local xPlayer = ESX.GetPlayerFromId(src) 
+    local items = exports.ox_inventory:Search(src, 'slots', item, metadata)
+ 
+    local url = items[1].metadata.url
+    local name =  items[1].metadata.name
+    local date = items[1].metadata.date
 
-    if Player.Functions.GetItemByName(item.name) then
-        TriggerClientEvent("mtc-polaroid:client:showImage", src, item[metadata].url, item[metadata].name, item[metadata].date)
-    end
+
+    TriggerClientEvent("mtc-polaroid:client:showImage", src, url, name, date)
 end)

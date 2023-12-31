@@ -1,5 +1,3 @@
-local QBCore = exports['qb-core']:GetCoreObject()
-
 local prop = nil
 local cammode = 0
 
@@ -22,9 +20,10 @@ end
 local function GetWebhook()
     local promise = promise.new()
 
-    QBCore.Functions.TriggerCallback('mtc-polaroid:server:webhook', function(webhook)
+
+    ESX.TriggerServerCallback('mtc-polaroid:server:webhook', function(webhook)
         promise:resolve(webhook)
-    end)
+    end, webhook)
 
     return Citizen.Await(promise)
 end
@@ -70,7 +69,6 @@ local function TakePicture()
     local webhook = GetWebhook()
     local title = TextInput()
 
-
     if webhook == nil then
         return
     end
@@ -93,7 +91,7 @@ local function CameraLoop()
             DisablePlayerFiring(PlayerId(), true) -- Disable weapon firing    
             Wait(0)
             SetFollowPedCamViewMode(4)        
-            if IsControlJustPressed(0, 18) then
+            if IsControlJustPressed(0, 54) then
                 StopAnim()
                 Wait(1)
                 TakePicture()
