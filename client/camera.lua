@@ -109,3 +109,11 @@ local function CameraLoop()
 end
 
 RegisterNetEvent("mtc-polaroid:client:camera", CameraLoop)
+
+exports('showitem', function(data, slot)
+    local url = slot.metadata.url
+    local name =  slot.metadata.name
+    local date = slot.metadata.date
+
+    TriggerEvent("mtc-polaroid:client:showImage", url, name, date)
+end)
