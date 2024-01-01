@@ -4,8 +4,12 @@ RegisterNetEvent("mtc-polaroid:server:getimage", function(url, name)
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src) 
     if not xPlayer.removeInventoryItem('polaroid_paper', 1) then
-        print("You don't have any polaroid paper")
-        return
+        lib.notify(src,{
+            title = 'Polaroid',
+            description = "You dont have any polaroid paper",
+            type = 'error'
+        })
+        return false
     end
     local date = os.date("%d-%m-%Y")
 

@@ -60,6 +60,8 @@ local function StopAnim()
     local ped = PlayerPedId()
     ClearPedTasks(ped)
 
+    HideHelpTextThisFrame()
+
     if prop ~= nil then
         DeleteEntity(prop)
     end
@@ -85,6 +87,8 @@ local function CameraLoop()
         AddProp()
         StartAnim()
 
+        lib.showTextUI('[E] - Take picture')
+
         cammode = GetFollowPedCamViewMode()
 
         while true do
@@ -95,6 +99,7 @@ local function CameraLoop()
                 StopAnim()
                 Wait(1)
                 TakePicture()
+                lib.hideTextUI()
                 Wait(1)
                 SetFollowPedCamViewMode(cammode)
                 return
