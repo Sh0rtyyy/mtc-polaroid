@@ -85,7 +85,9 @@ local function CameraLoop()
         AddProp()
         StartAnim()
 
-        lib.showTextUI('[E] - Take picture')
+        AddTextEntry("press_e", "Press E to take a picture")
+
+        DisplayHelpTextThisFrame("press_e", false)
 
         cammode = GetFollowPedCamViewMode()
 
@@ -97,7 +99,7 @@ local function CameraLoop()
                 StopAnim()
                 Wait(1)
                 TakePicture()
-                lib.hideTextUI()
+                HideHelpTextThisFrame()
                 Wait(1)
                 SetFollowPedCamViewMode(cammode)
                 return
