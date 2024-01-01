@@ -60,8 +60,6 @@ local function StopAnim()
     local ped = PlayerPedId()
     ClearPedTasks(ped)
 
-    HideHelpTextThisFrame()
-
     if prop ~= nil then
         DeleteEntity(prop)
     end
