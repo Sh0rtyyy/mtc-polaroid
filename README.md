@@ -48,8 +48,9 @@ You can find the images for the items mentioned below in the ```images``` direct
     description = "Cool image bro",
     client = {
         image = "photo.png",
+        export = "mtc-polaroid.showitem"
     }
-}
+},
 ```
 ## 👉 Join our community
 
