@@ -96,10 +96,10 @@ local function CameraLoop()
             Wait(0)
             SetFollowPedCamViewMode(4)        
             if IsControlJustPressed(0, 54) then
+                HideHelpTextThisFrame()
                 StopAnim()
                 Wait(1)
                 TakePicture()
-                HideHelpTextThisFrame()
                 Wait(1)
                 SetFollowPedCamViewMode(cammode)
                 return
