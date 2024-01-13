@@ -21,7 +21,7 @@ local function GetWebhook()
     local promise = promise.new()
 
 
-    ESX.TriggerServerCallback('mtc-polaroid:server:webhook', function(webhook)
+    ESX.TriggerServerCallback('mtc-tripolar:server:webhook', function(webhook)
         promise:resolve(webhook)
     end, webhook)
 
@@ -76,7 +76,7 @@ local function TakePicture()
     exports['screenshot-basic']:requestScreenshotUpload(webhook, 'files[]', function(data)
         local image = json.decode(data)
         local url = image.attachments[1].proxy_url
-        TriggerServerEvent("mtc-polaroid:server:getimage", url, title)
+        TriggerServerEvent("mtc-tripolar:server:getimage", url, title)
     end)
 end
 
@@ -108,12 +108,12 @@ local function CameraLoop()
     end)
 end
 
-RegisterNetEvent("mtc-polaroid:client:camera", CameraLoop)
+RegisterNetEvent("mtc-tripolar:client:camera", CameraLoop)
 
 exports('showitem', function(data, slot)
     local url = slot.metadata.url
     local name =  slot.metadata.name
     local date = slot.metadata.date
 
-    TriggerEvent("mtc-polaroid:client:showImage", url, name, date)
+    TriggerEvent("mtc-tripolar:client:showImage", url, name, date)
 end)
