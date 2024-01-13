@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.polaroid {
+.tripolar {
     width: 400px;
     background-color: white;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
@@ -15,14 +15,14 @@
     text-align: center;
 }
 
-.polaroid > img {
+.tripolar > img {
     width: 400px;
     height: 400px;
     object-fit: cover;
     border-radius: 3px;
 }
 
-.polaroid > h1 {
+.tripolar > h1 {
     font-family: "Poppins", "Roboto", sans-serif;
     color: rgba(0, 0, 0, .9);
     margin: 10px auto 5px auto;
@@ -35,7 +35,7 @@
     width: 400px;
 }
 
-.polaroid > p {
+.tripolar > p {
     font-family: "Poppins", "Roboto", sans-serif;
     color: rgba(0,0,0,.6);
     margin: 0 auto;
