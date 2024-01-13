@@ -1,4 +1,4 @@
-local webhook = "https://discord.com/api/webhooks/1022085112923430962/1vtvvyE8_WQFcaR2bvYayk7B2fH526yGbGNB3zTb-BjG83swD02-rHlUiCxVatEFy_Uo"
+local webhook = ""
 
 RegisterNetEvent("mtc-polaroid:server:getimage", function(url, name)
     local src = source
@@ -21,8 +21,11 @@ RegisterNetEvent("mtc-polaroid:server:getimage", function(url, name)
 end)
 
 ESX.RegisterServerCallback('mtc-polaroid:server:webhook', function(src, cb, args)
-    cb(webhook)
-
+    if webhook == "" then
+        print("ERROR - PLEASE SETUP WEBHOOK")
+    else
+        cb(webhook)
+    end
 end)
 
 
