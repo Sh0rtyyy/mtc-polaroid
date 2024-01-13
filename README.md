@@ -1,37 +1,37 @@
-![Polaroid](https://i.imgur.com/DkWqDk5.png)
+![tripolar](https://i.imgur.com/DkWqDk5.png)
 
-# Polaroid
-A Polaroid Camera resource for ESX framewrok, recoded by mrshortyno, within the script we focused on usability and a clean UI.
+# tripolar
+A tripolar Camera resource for ESX framewrok, recoded by mrshortyno, within the script we focused on usability and a clean UI.
 # Credits
-https://github.com/morethancodenl/mtc-polaroid original repo
+https://github.com/morethancodenl/mtc-tripolar original repo
 Shorty (ME) for redoing the code to ESX
 
 ## 🔌 Installation:
-To get started with the MTC Polaroid resource, follow these steps:
+To get started with the MTC tripolar resource, follow these steps:
 
 1. Clone this repository and place the files into your designated resources folder.
-2. Rename the script file to ```mtc-polaroid```.
+2. Rename the script file to ```mtc-tripolar```.
 3. Configure the webhook in the ```server/main.lua``` file.
 4. Set up the necessary inventory items.
-5. Use the Polaroid Camera with the ```polaroid_paper``` item in you're inventory.
+5. Use the tripolar Camera with the ```tripolar_paper``` item in you're inventory.
 
 ## 📦 Items
 You can find the images for the items mentioned below in the ```images``` directory.
 
 **ox_inventory**
 ```lua
-["polaroid_camera"] = {
-    label = "Polaroid camera",
+["tripolar_camera"] = {
+    label = "tripolar camera",
     weight = 5000,
     stack = false,
     close = true,
     description = "Did we just go back in time?",
     client = {
-        image = "polaroid.png",
+        image = "tripolar.png",
     }
 },
-["polaroid_paper"] = {
-    label = "Polaroid paper",
+["tripolar_paper"] = {
+    label = "tripolar paper",
     weight = 10,
     stack = true,
     close = false,
@@ -40,15 +40,15 @@ You can find the images for the items mentioned below in the ```images``` direct
         image = "photo.png",
     }
 },
-["polaroid"] = {
-    label = "Polaroid image",
+["tripolar"] = {
+    label = "tripolar image",
     weight = 10,
     stack = false,
     close = true,
     description = "Cool image bro",
     client = {
         image = "photo.png",
-        export = "mtc-polaroid.showitem"
+        export = "mtc-tripolar.showitem"
     }
 },
 ```
