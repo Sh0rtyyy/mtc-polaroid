@@ -1,11 +1,11 @@
 local webhook = ""
 
-RegisterNetEvent("mtc-polaroid:server:getimage", function(url, name)
+RegisterNetEvent("mtc-tripolar:server:getimage", function(url, name)
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src) 
-    if not xPlayer.removeInventoryItem('polaroid_paper', 1) then
+    if not xPlayer.removeInventoryItem('tripolar_paper', 1) then
         lib.notify(src,{
-            title = 'Polaroid',
+            title = 'Tripolar',
             description = "You dont have any polaroid paper",
             type = 'error'
         })
@@ -13,14 +13,14 @@ RegisterNetEvent("mtc-polaroid:server:getimage", function(url, name)
     end
     local date = os.date("%d-%m-%Y")
 
-    exports.ox_inventory:AddItem(src, 'polaroid', 1, {
+    exports.ox_inventory:AddItem(src, 'tripolar', 1, {
         name = name,
         url = url,
         date = date,
     })
 end)
 
-ESX.RegisterServerCallback('mtc-polaroid:server:webhook', function(src, cb, args)
+ESX.RegisterServerCallback('mtc-tripolar:server:webhook', function(src, cb, args)
     if webhook == "" then
         print("ERROR - PLEASE SETUP WEBHOOK")
     else
@@ -29,10 +29,10 @@ ESX.RegisterServerCallback('mtc-polaroid:server:webhook', function(src, cb, args
 end)
 
 
-ESX.RegisterUsableItem('polaroid_camera', function(source, item)
+ESX.RegisterUsableItem('tripolar_camera', function(source, item)
     local src = source
     local xPlayer = ESX.GetPlayerFromId(src) 
     if xPlayer.getInventoryItem(item) then
-        TriggerClientEvent("mtc-polaroid:client:camera", src)
+        TriggerClientEvent("mtc-tripolar:client:camera", src)
     end
 end)
