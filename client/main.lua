@@ -13,4 +13,4 @@ RegisterNuiCallback("hide", function(data, cb)
     cb("ok")
 end)
 
-RegisterNetEvent("mtc-polaroid:client:showImage", ShowImage)
+RegisterNetEvent("mtc-tripolar:client:showImage", ShowImage)
